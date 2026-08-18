@@ -1,0 +1,50 @@
+.socials {
+  display: flex;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  color: #8f8f8f;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 19px;
+  height: 19px;
+
+  fill: currentColor;
+}
+
+.social-icon--mail {
+  fill: none;
+  stroke: currentColor;
+}

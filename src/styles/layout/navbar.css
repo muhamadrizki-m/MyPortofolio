@@ -1,0 +1,52 @@
+.navbar {
+  position: fixed;
+
+  top: 36px;
+  left: 50%;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+
+  gap: 34px;
+
+  padding: 13px 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transform: translateX(-50%);
+}
+
+.navbar a {
+  color: #929292;
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    top: 22px;
+
+    gap: 17px;
+
+    padding: 11px 18px;
+  }
+
+  .navbar a {
+    font-size: 11px;
+  }
+}

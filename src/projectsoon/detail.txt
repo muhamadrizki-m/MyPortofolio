@@ -1,0 +1,570 @@
+import { Link, useParams } from "react-router-dom";
+import "../../styles/sections/project-detail.css";
+
+// Project data
+const projects = {
+  "bank-sampah": {
+    title: "Bank Sampah",
+    type: "Academic Project",
+    year: "2026",
+
+    introduction:
+      "A waste management system designed to manage waste deposits, points, and user activities.",
+
+    overview:
+      "This project was developed as part of an academic assignment to explore how a digital system can be used to manage waste collection and point-based transactions.",
+
+    role:
+      "Designed and developed the application structure, interface, database, and core system functionality.",
+
+    technologies: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Blade",
+      "Bootstrap",
+    ],
+
+    features: [
+      "User authentication",
+      "Waste deposit management",
+      "Point calculation",
+      "Waste type management",
+      "Point redemption",
+    ],
+
+    challenges:
+      "The main challenge was designing a system that could handle different user roles and keep waste transactions and point calculations consistent.",
+
+    status: "Academic Project",
+  },
+
+  hippostore: {
+    title: "HippoStore",
+    type: "Personal Project",
+    year: "2026",
+
+    introduction:
+      "A web platform concept for managing and presenting Mobile Legends boosting services.",
+
+    overview:
+      "HippoStore is a personal project focused on exploring web development, interface design, and service-based website architecture.",
+
+    role:
+      "Designed and developed the website structure, interface, responsive layout, and core functionality.",
+
+    technologies: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Blade",
+      "Bootstrap",
+    ],
+
+    features: [
+      "Service listing",
+      "Price calculator",
+      "Order interface",
+      "Responsive layout",
+    ],
+
+    challenges:
+      "The main challenge was creating a simple interface while keeping the service information clear and easy to navigate.",
+
+    status: "Personal Project",
+  },
+};
+
+// Project detail page
+function ProjectDetail() {
+  const { slug } = useParams();
+
+  const project = projects[slug];
+
+  // Project not found
+  if (!project) {
+    return (
+      <main className="project-detail">
+        <div className="project-detail-container">
+          <div className="project-not-found">
+            <span className="project-detail-eyebrow">
+              Project
+            </span>
+
+            <h1 className="project-detail-title">
+              Project not found.
+            </h1>
+
+            <Link
+              className="project-detail-back"
+              to="/#projects"
+            >
+              ← Back to Projects
+            </Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="project-detail">
+      <div className="project-detail-container">
+
+        {/* Header */}
+        <header className="project-detail-header">
+          <div className="project-detail-meta">
+            <span>{project.type}</span>
+            <span>{project.year}</span>
+          </div>
+
+          <h1 className="project-detail-title">
+            {project.title}
+          </h1>
+
+          <p className="project-detail-intro">
+            {project.introduction}
+          </p>
+        </header>
+
+        {/* Project preview */}
+        <div className="project-detail-preview">
+          <span>Project Preview</span>
+        </div>
+
+        {/* Project information */}
+        <div className="project-detail-content">
+
+          {/* Overview */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              01 — Overview
+            </span>
+
+            <h2>
+              About the project
+            </h2>
+
+            <p>
+              {project.overview}
+            </p>
+          </section>
+
+          {/* Role */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              02 — Role
+            </span>
+
+            <h2>
+              My contribution
+            </h2>
+
+            <p>
+              {project.role}
+            </p>
+          </section>
+
+          {/* Technologies */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              03 — Technologies
+            </span>
+
+            <h2>
+              Built with
+            </h2>
+
+            <div className="project-detail-technologies">
+              {project.technologies.map((technology) => (
+                <span
+                  className="project-detail-technology"
+                  key={technology}
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* Features */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              04 — Features
+            </span>
+
+            <h2>
+              Key features
+            </h2>
+
+            <ul className="project-detail-features">
+              {project.features.map((feature) => (
+                <li key={feature}>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Challenges */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              05 — Challenges
+            </span>
+
+            <h2>
+              Challenges &amp; solutions
+            </h2>
+
+            <p>
+              {project.challenges}
+            </p>
+          </section>
+
+          {/* Status */}
+          <section className="project-detail-section">
+            <span className="project-detail-label">
+              06 — Status
+            </span>
+
+            <h2>
+              Project status
+            </h2>
+
+            <p>
+              {project.status}
+            </p>
+          </section>
+
+        </div>
+
+        {/* Back */}
+        <Link
+          className="project-detail-back"
+          to="/#projects"
+        >
+          ← Back to Projects
+        </Link>
+
+      </div>
+    </main>
+  );
+}
+
+export default ProjectDetail;
+
+
+
+
+
+/* css project */
+
+.project-detail {
+  min-height: 100vh;
+  padding: 160px 6vw 100px;
+
+  background: #060606;
+  color: #f2f2f2;
+}
+
+.project-detail-container {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+
+/* 
+   HEADER
+   */
+
+.project-detail-header {
+  max-width: 900px;
+  margin-bottom: 80px;
+}
+
+.project-detail-meta {
+  display: flex;
+  gap: 24px;
+
+  margin-bottom: 28px;
+
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.project-detail-title {
+  margin: 0 0 28px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.project-detail-intro {
+  max-width: 650px;
+  margin: 0;
+
+  color: #999;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   PROJECT PREVIEW
+   ======================================== */
+
+.project-detail-preview {
+  width: 100%;
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 110px;
+
+  border: 1px solid #1c1c1c;
+
+  background: #0a0a0a;
+
+  color: #4f4f4f;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+
+/* ========================================
+   CONTENT
+   ======================================== */
+
+.project-detail-content {
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+.project-detail-section {
+  max-width: 720px;
+}
+
+.project-detail-label {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: #555;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.project-detail-section h2 {
+  margin: 0 0 20px;
+
+  color: #f2f2f2;
+
+  font-size: 25px;
+  font-weight: 400;
+
+  letter-spacing: -0.02em;
+}
+
+.project-detail-section p {
+  margin: 0;
+
+  color: #999;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   TECHNOLOGIES
+   ======================================== */
+
+.project-detail-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-detail-technology {
+  padding: 9px 13px;
+
+  border: 1px solid #202020;
+
+  color: #aaa;
+
+  font-size: 11px;
+  letter-spacing: 0.04em;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-detail-technology:hover {
+  border-color: #444;
+  color: #f2f2f2;
+}
+
+
+/* ========================================
+   FEATURES
+   ======================================== */
+
+.project-detail-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.project-detail-features li {
+  position: relative;
+
+  padding-left: 20px;
+
+  color: #999;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.project-detail-features li::before {
+  content: "—";
+
+  position: absolute;
+  left: 0;
+
+  color: #555;
+}
+
+
+/* ========================================
+   BACK LINK
+   ======================================== */
+
+.project-detail-back {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 110px;
+
+  color: #888;
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-detail-back:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+
+/* ========================================
+   NOT FOUND
+   ======================================== */
+
+.project-not-found {
+  min-height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 768px) {
+  .project-detail {
+    padding: 140px 24px 80px;
+  }
+
+  .project-detail-header {
+    margin-bottom: 60px;
+  }
+
+  .project-detail-title {
+    font-size: clamp(3rem, 14vw, 5rem);
+  }
+
+  .project-detail-intro {
+    font-size: 15px;
+  }
+
+  .project-detail-preview {
+    min-height: 340px;
+    margin-bottom: 80px;
+  }
+
+  .project-detail-content {
+    gap: 65px;
+  }
+
+  .project-detail-section h2 {
+    font-size: 22px;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 480px) {
+  .project-detail {
+    padding: 120px 20px 60px;
+  }
+
+  .project-detail-meta {
+    gap: 14px;
+    font-size: 9px;
+  }
+
+  .project-detail-title {
+    font-size: clamp(2.7rem, 15vw, 4rem);
+  }
+
+  .project-detail-preview {
+    min-height: 240px;
+  }
+
+  .project-detail-section p,
+  .project-detail-features li {
+    font-size: 14px;
+  }
+
+  .project-detail-back {
+    margin-top: 80px;
+  }
+}
