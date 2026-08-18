@@ -2,7 +2,7 @@
 
 Welcome to my little corner of the internet.
 
-I'm Muhammad Rizki, an Informatics student who enjoys building things for the web and learning something new along the way.
+I'm Muhamad Rizki Maulana, an Informatics student who enjoys building things for the web and learning something new along the way.
 
 This portfolio is where I share a bit about myself, the technologies I'm learning, and the projects I'm working on.
 
